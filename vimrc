@@ -10,7 +10,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source ./vimrc
+    autocmd VimEnter * PlugInstall --sync | source ~/.vim/vimrc
 endif
 
 "key map
@@ -50,7 +50,7 @@ nnoremap <leader>. :bn<CR>
 noremap <c-j> 10j
 noremap <c-k> 10k
 " noremap <leader>r :source C:\Program Files (x86)\Vim\_vimrc<CR>
-noremap <leader>r :source ./vimrc<CR>
+noremap <leader>r :source ~/.vim/vimrc<CR>
 
 
 "some set 
@@ -210,14 +210,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "verilog instance
 " so C:\Program Files (x86)\Vim\vim82\plugin\vlog_inst_gen.vim
-so ./vlog_inst_gen.vim
+so ~/.vim/vlog_inst_gen.vim
 let g:vlog_inst_gen_mode=1 
 
 "ultisnips
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetDirectorys = ['./ultisnips']
+let g:UltiSnipsSnippetDirectorys = ['~/.vim/ultisnips']
 
 "NERD Commenter
 " Add spaces after comment delimiters by default
