@@ -1,0 +1,54 @@
+snippet module "verilog module" b
+module ${1:name}(
+	//system signals
+	input					${2:clk}			,
+	input					${3:rst_n}		,
+	//
+);
+${0}
+
+
+
+
+endmodule
+endsnippet
+
+
+snippet cnt "counter" b
+//$3
+always @(posedge ${1:clk} or negedge ${2:rst_n})
+begin
+	if(!$2)
+		${3:cnt} <= ${4:bit}'b0;
+	else if(add_$3)begin
+		if(end_$3)
+			$3 <= $4'b0;
+		else
+			$3 <= $3+1'b1;
+	end
+end
+assign add_$3 = ${5};
+assign end_$3 = ${6};
+${0}
+endsnippet 
+
+
+snippet always "sequential always block" b
+//$3
+always @(posedge ${1:clk} or negedge ${2:rst_n})
+begin
+	if(!$2)
+		${3:variate} <= ${4:bit}'b0;
+	else ${5}
+		$3 <= ${6};
+end
+endsnippet 
+
+
+snippet always* "combined always block" b
+//${1}
+always @(*) 
+begin
+	${0}
+end
+endsnippet
