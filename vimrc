@@ -13,6 +13,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source ~/.vim/vimrc
 endif
 
+if !has('gui_running')
+    set t_Co=256
+endif
+
 "key map
 let mapleader = " "
 noremap <space> <nop>
@@ -21,8 +25,8 @@ noremap <leader><CR> :set hlsearch!<CR>
 inoremap ( ()<ESC>i
 inoremap { {}<ESC>i
 inoremap [ []<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
+" inoremap " ""<ESC>i
+" inoremap ' ''<ESC>i
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Right> <nop>
@@ -65,7 +69,7 @@ highlight Comment gui=bold
 " set guifont=courier_new:h18
 set guifont=DejaVuSansMono\ 17
 set encoding=utf-8
-set fileencodings=utf-8,chinese,latin-1,gbk,gb18030,gk2312
+set fileencodings=utf-8 ",chinese,latin-1,gbk,gb18030,gk2312
 set number
 set relativenumber
 set cursorline cursorcolumn
@@ -84,6 +88,9 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 let &t_ut=''
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set expandtab
 set tabstop=4
 set shiftwidth=4
