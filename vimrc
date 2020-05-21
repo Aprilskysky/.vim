@@ -167,17 +167,17 @@ call plug#end()
 
 "snazzy
 "let g:SnazzyTransparent = 1
-"let g:lightline = {
-"\ 'colorscheme': 'snazzy',
-"\ }
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ }
 
 " lightline
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 set noshowmode " turn off extra -- INSERT --
-let g:lightline = {
-\ 'colorscheme': 'darcula',
-\ }
+" let g:lightline = {
+" \ 'colorscheme': 'darcula',
+" \ }
 let g:lightline.active = {
 		    \ 'left': [ [ 'mode', 'paste','spell' ],
 		    \           [ 'readonly', 'filename', 'modified' ],
