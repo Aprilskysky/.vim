@@ -1,9 +1,9 @@
-snippet module "verilog module" b
+snippet mod "verilog module" b
 module ${1:name}(
 	//system signals
 	input					${2:clk}			,
 	input					${3:rst_n}		,
-	//
+	${4:io}
 );
 ${0}
 
@@ -33,22 +33,70 @@ ${0}
 endsnippet 
 
 
-snippet always "sequential always block" b
+snippet if "sequential always block" b
 //$3
 always @(posedge ${1:clk} or negedge ${2:rst_n})
 begin
 	if(!$2)
 		${3:variate} <= ${4:bit}'b0;
-	else ${5}
-		$3 <= ${6};
+	else 
+		$3 <= ${5};
 end
+${0}
 endsnippet 
 
 
-snippet always* "combined always block" b
-//${1}
-always @(*) 
+snippet ifeif "sequential always block" b
+//$3
+always @(posedge ${1:clk} or negedge ${2:rst_n})
 begin
-	${0}
+	if(!$2)
+		${3:variate} <= ${4:bit}'b0;
+	else if(${5})
+		$3 <= ${6};
+	else
+		$3 <= ${7};
 end
+${0}
+endsnippet 
+
+snippet if* "combined always block" b
+//$2
+always @(*)
+begin
+	if($1)
+		${2:variate} = ${3};
+	else 
+		$2 = ${4};
+end
+${0}
+endsnippet
+
+
+snippet ifeif* "combined always block" b
+//$2
+always @(*)
+begin
+	if(!$1)
+		${2:variate} = ${3};
+	else if(${4}) 
+		$2 = ${5};
+	else
+		$2 = ${6};
+end
+${0}
+endsnippet
+ 
+snippet fsm "fsm" b
+//$2
+always @(*)
+begin
+	if(!$1)
+		${2:variate} = ${3};
+	else if(${4}) 
+		$2 = ${5};
+	else
+		$2 = ${6};
+end
+${0}
 endsnippet

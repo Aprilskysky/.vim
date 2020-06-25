@@ -25,8 +25,6 @@ noremap <leader><CR> :set hlsearch!<CR>
 inoremap ( ()<ESC>i
 inoremap { {}<ESC>i
 inoremap [ []<ESC>i
-" inoremap " ""<ESC>i
-" inoremap ' ''<ESC>i
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Right> <nop>
@@ -69,11 +67,9 @@ highlight Comment gui=bold
 " set guifont=courier_new:h18
 set guifont=DejaVuSansMono\ 17
 set encoding=utf-8
-set fileencodings=utf-8 ",chinese,latin-1,gbk,gb18030,gk2312
+set fileencodings=utf-8
 set number
-set relativenumber
 set cursorline cursorcolumn
-"highlight Cursorline cterm=NONE ctermbg=NONE ctermfg=NONE guibg=black guifg=NONE
 set wrap
 set showcmd
 set wildmenu
@@ -88,10 +84,7 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 let &t_ut=''
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
 set ai!
 set smartindent
@@ -110,7 +103,7 @@ au GuiEnter * set t_vb=
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 "Solve the consle prompt message output garbled code
-language messages zh_CN.utf-8
+" language messages zh_CN.utf-8
 
 
 noremap <F5> :call Vheader()<CR>
@@ -155,7 +148,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
 call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'preservim/nerdtree'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'itchyny/lightline.vim'
@@ -218,10 +211,10 @@ so ~/.vim/vlog_inst_gen.vim
 let g:vlog_inst_gen_mode=1 
 
 "ultisnips
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetDirectorys = ['~/.vim/ultisnips']
+" let g:UltiSnipsExpandTrigger="<c-e>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsSnippetDirectorys = ['~/.vim/ultisnips']
 
 "NERD Commenter
 " Add spaces after comment delimiters by default
@@ -239,35 +232,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
